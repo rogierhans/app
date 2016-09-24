@@ -1,26 +1,4 @@
 
-//A class that contains multiple statments
-class Statements {
-  //xcoordinate where the statements starrt
-  int xstart = 700;
-  public ArrayList<Statement> Statements;
-
-  public Statements(String[] ss) {
-    Statements = new ArrayList<Statement>();
-    for ( int i = 0; i < ss.length; i++)
-      Statements.add(new Statement(ss[i], xstart, (i*80)));
-  }
-
-  public void mouseP() {
-    for (Statement Statement : Statements) Statement.mouseP();
-  }
-
-  public void displayStatement() {
-    for (Statement Statement : Statements) {
-      Statement.update();
-      Statement.display();
-    }
-  }
 
 //the class of the statement
   class Statement {
@@ -28,30 +6,29 @@ class Statements {
     boolean onTrue = false, onFalse = true;
     String s;
     int x, y, b1x, b1y, b2x, b2y; 
-    int bw = 60;
-    int bh = 25;
+    int bw = 100;
+    int bh = 50;
     int spacingButton = 10;
-    int distText2Button = 30;
+    int distText2Button = 50;
 
-    public Statement (String s, int x, int y) {
+    public Statement (String s) {
       this.s = s;
-      this.x = x;
-      this.y = y;
+      x = 600;
+      y= 500;
       b1x = x;
       b1y = y + distText2Button;
       b2x = x + bw + spacingButton;
       b2y = y + distText2Button;
     }
 
-
     public void display() {
 
       textAlign(LEFT, TOP); 
-      textSize(15); 
+      textSize(25); 
       fill(0);
       text(s, x, y+10);
 
-      textSize(12);
+      textSize(20);
       fill(p?155:(onTrue?200:255));
       rect(b1x, b1y, bw, bh);
       fill(!p?155:(onFalse?200:255));
@@ -76,10 +53,3 @@ class Statements {
       return s + " " + p + "\n";
     }
   }
-  public String toString() {
-    String s = "";
-    for (Statement st : Statements)
-      s += st;
-    return s;
-  }
-}

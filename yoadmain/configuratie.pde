@@ -5,16 +5,21 @@ public class Config {
   private int xcircle, ycircle;
   private Omtrek om;
   private int geval = 0;
-  private Statements sts;
+  private Statement sts;
 
   //construct a random configuration
-  public Config(Statements sts) {
+  public Config(Statement sts) {
     this.sts = sts;
+    setGeval();
     randomConfig();
   }
-
+  public Config(Statement sts, int geval) {
+    this.sts = sts;
+    this.geval = geval;
+    randomConfig();
+  }
   //constructs a specified configuration
-  public Config(ArrayList<R> r, int xcircle, int ycircle, Statements sts) {
+  public Config(ArrayList<R> r, int xcircle, int ycircle, Statement sts) {
     this.r =r;
     this.xcircle = xcircle;
     this.ycircle = ycircle;
@@ -33,7 +38,6 @@ public class Config {
   //it choses the type of configuration
   //and then randomly generatates configurations until one of the type is found
   public void randomConfig() {
-    setGeval();
     createRectangles();
     int lasVegas = 1000;
     do {
@@ -92,18 +96,10 @@ public class Config {
   public void display() {
     for ( R rec : r )
       rec.display();
-
-    fill(255);
-    ellipse(800, 600, radius, radius);
-
-    textAlign(CENTER, CENTER);
-    fill(0);
-    text(geval, 800, 600);
-
     fill(255, 255, 0);
     ellipse(xcircle, ycircle, radius, radius);
-
-    sts.displayStatement();
+    sts.update();
+    sts.display();
   }
 
   public String toString() {

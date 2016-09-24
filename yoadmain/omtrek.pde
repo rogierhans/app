@@ -15,10 +15,10 @@ class Omtrek {
   }
 
   public int checkGeval(int xcircle, int ycircle) {
-    if (circleInRec(xcircle, ycircle))          return 1;
-    else if (omtrekIntersect(xcircle, ycircle)) return 2;
-    else if (circleInRecPlus(xcircle, ycircle)) return 3;
-    else                                        return 4;
+    if (circleInRec(xcircle, ycircle))          return 1;// in een
+    else if (omtrekIntersect(xcircle, ycircle)) return 2;// op de rand
+    else if (circleInRecPlus(xcircle, ycircle)) return 3;// in meerdere
+    else                                        return 4;// helemaal er buiten
   }
 
   //returns true if the circle is inside one rectangle

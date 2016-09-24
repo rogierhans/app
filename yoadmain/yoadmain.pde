@@ -31,8 +31,8 @@ void setup() {
     else if (i==l2-1) 
       cs[i] = L2();
     else {
-      String[] ss = {"the circle is in the rectangles", "the cirlce is friendly", "the circle is round"};
-      cs[i] = new Config(new Statements(ss));
+      String ss = "The circle is in the rectangles";
+      cs[i] = new Config(new Statement(ss));
     }
   }
 }
@@ -52,8 +52,8 @@ public Config L1() {
   };
   for (int i =0; i<n; i++)
     r.add(arrayR[i]);
-  String[] ss = {"the circle is in the rectangles", "the cirlce is friendly", "the circle is round"};
-  Statements Statements = new Statements(ss);
+  String ss = "The circle is in the rectangles";
+  Statement Statements = new Statement(ss);
   return new Config(r, 300, 150, Statements);
 }
 
@@ -72,7 +72,7 @@ public Config L2() {
   };
   for (int i =0; i<n; i++)
     r.add(arrayR[i]);
-  String[] ss = {"the circle is in a rectangle", "the cirlce is friendly", "the circle is round"};
-  Statements qs = new Statements(ss);
+  String ss = "The circle is in a rectangle";
+  Statement qs = new Statement(ss);
   return new Config(r, 150, 300, qs);
 }
